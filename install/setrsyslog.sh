@@ -12,7 +12,7 @@ detect_os() {
 
 # Mengatur file konfigurasi Rsyslog berdasarkan OS dan versinya
 os_version=$(detect_os)
-if [[ "$os_version" == "ubuntu 24.04" ]]; then
+if [[ "$os_version" =~ "ubuntu 24" ]]; then 
   RSYSLOG_FILE="/etc/rsyslog.d/50-default.conf"
 elif [[ "$os_version" == "debian 12" ]]; then
   RSYSLOG_FILE="/etc/rsyslog.conf"
