@@ -1,5 +1,6 @@
 #!/bin/bash
-# Proxy For Edukasi & Imclass
+# Proxy MOD BY NEWBIE
+systemctl stop ws ws-ovpn
 file_path="/etc/handeling"
 
 # Cek apakah file ada
@@ -74,5 +75,7 @@ END
 
 systemctl daemon-reload
 systemctl enable ws-ovpn
+systemctl start ws-ovpn
 systemctl restart ws-ovpn
 
+rm insshws.*
