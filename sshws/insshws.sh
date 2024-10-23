@@ -1,5 +1,20 @@
 #!/bin/bash
-# Proxy MOD BY NEWBIE
+
+# File konfigurasi SSH
+sshd_config="/etc/ssh/sshd_config"
+
+# Baris yang akan ditambahkan
+cipher_line="Ciphers aes128-ctr,aes192-ctr,aes256-ctr"
+
+# Cek apakah baris sudah ada di dalam file
+if grep -Fxq "$cipher_line" $sshd_config
+then
+    echo "Baris cipher sudah ada di dalam $sshd_config, tidak perlu ditambahkan."
+else
+    echo "$cipher_line" >> $sshd_config
+    echo "Baris cipher telah ditambahkan ke $sshd_config."
+fi
+systemctl reload ssh sshd
 systemctl stop ws ws-ovpn
 file_path="/etc/handeling"
 
